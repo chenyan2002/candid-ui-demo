@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "dfx": "0.5.3",
+  "canisters": {
+    "candid": {
+      "main": "src/candid/main.mo"
+    }
+  },
+  "defaults": {
+    "build": {
+      "output": "canisters/"
+    },
+    "start": {
+      "port": 8000,
+      "address": "127.0.0.1",
+      "serve_root": "canisters/candid/assets"
+    }
+  }
+}
