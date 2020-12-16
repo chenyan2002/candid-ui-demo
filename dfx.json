@@ -1,19 +1,22 @@
 {
   "version": 1,
-  "dfx": "0.5.3",
   "canisters": {
     "candid": {
-      "main": "src/candid/main.mo"
+      "main": "src/candid/main.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
-    "build": {
-      "output": "canisters/"
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000"
     },
-    "start": {
-      "port": 8000,
-      "address": "127.0.0.1",
-      "serve_root": "canisters/candid/assets"
+    "ic": {
+      "providers": [
+        "https://gw.dfinity.network"
+      ],
+      "type": "persistent"
     }
   }
 }
