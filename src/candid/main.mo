@@ -32,15 +32,18 @@ public type NestedRecord = { A: Record; B: ?NestedRecord; C: R.Result<List<Int>,
       return f[n%2];
   };
   
-  public query ({ caller = c }) func getCaller() : async (Principal, Word32) {
+  public query ({ caller = c }) func getCaller() : async (Principal, Nat32) {
       return (c, Prim.hashBlob (Prim.blobOfPrincipal c));
   };
-  
+
   public query func id_float(id: Float): async Float { id };
 
   public query func id_principal(id: Principal): async Principal {
       return id;
   };
+
+  public query func id_empty(id: R.Result<Nat, None>) : async R.Result<Nat, None> { id };
+  public query func id_reserved(id: Any) : async Any { id };
 
   public func id_service(id: actor { greet: (Text) -> async Text }, name: Text): async Text {
       return await id.greet(name);
